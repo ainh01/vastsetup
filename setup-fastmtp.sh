@@ -723,7 +723,7 @@ server_args=(
     --spec-draft-p-min 0
     --host "${SERVER_HOST}"
     --port "${SERVER_PORT}"
-    --ctx-size 190000
+    --ctx-size 262144
     --parallel 1
     --batch-size 2048
     --ubatch-size 512
