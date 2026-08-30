@@ -15,7 +15,7 @@ readonly MODEL_DIR="/workspace/models"
 readonly LLAMA_DIR="/workspace/llama.cpp"
 readonly WORKSPACE="/workspace"
 
-readonly MODEL="${MODEL_DIR}/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-Q5_K_P.gguf"
+readonly MODEL="${MODEL_DIR}/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-IQ4_XS.gguf"
 readonly DRAFT="${MODEL_DIR}/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-FastMTP-32K.gguf"
 readonly BIN="${LLAMA_DIR}/build/bin/llama-server"
 readonly LOG="/workspace/fastmtp-server.log"
@@ -23,7 +23,7 @@ readonly PID_FILE="/workspace/fastmtp-server.pid"
 readonly PATCH_FILE="/workspace/HauhauCS-FastMTP-llama.cpp.patch"
 
 readonly PATCH_URL="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/resolve/main/HauhauCS-FastMTP-llama.cpp.patch"
-readonly MODEL_URL="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/resolve/main/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-Q5_K_P.gguf"
+readonly MODEL_URL="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/resolve/main/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-IQ4_XS.gguf"
 readonly DRAFT_URL="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/resolve/main/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-FastMTP-32K.gguf"
 
 readonly LLAMA_REPO="https://github.com/ggerganov/llama.cpp"
