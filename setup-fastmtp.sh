@@ -22,9 +22,9 @@ readonly LOG="/workspace/fastmtp-server.log"
 readonly PID_FILE="/workspace/fastmtp-server.pid"
 readonly PATCH_FILE="/workspace/HauhauCS-FastMTP-llama.cpp.patch"
 
-readonly PATCH_URL="https://s3.ap-northeast-1.wasabisys.com/fgergdqvf/models/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/HauhauCS-FastMTP-llama.cpp.patch?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=4KBP7A1E6WUKJF6X2QSP%2F20260831%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20260831T143822Z&X-Amz-Expires=604800&X-Amz-Signature=069b3344db1bcdedb60feef3e8d58561f369f6841552195967a4cc774df3732c&X-Amz-SignedHeaders=host"
-readonly MODEL_URL="https://s3.ap-northeast-1.wasabisys.com/fgergdqvf/models/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-IQ4_XS.gguf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=SQI4OW9P5M85BYZUYXWN%2F20260831%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20260831T143702Z&X-Amz-Expires=604800&X-Amz-Signature=51097b44380004413fe4dfa04fded1422aefd61ee89a4d88d579dc02fd696574&X-Amz-SignedHeaders=host"
-readonly DRAFT_URL="https://s3.ap-northeast-1.wasabisys.com/fgergdqvf/models/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-FastMTP-32K.gguf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=XMR3AU3V6IV69MWVU7FA%2F20260831%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20260831T143758Z&X-Amz-Expires=604800&X-Amz-Signature=1c39a712fabbb1768adb6a4f7e9b97d7b7d3a8680e6135717bb8c47df54298d9&X-Amz-SignedHeaders=host"
+readonly PATCH_URL="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/resolve/main/HauhauCS-FastMTP-llama.cpp.patch"
+readonly MODEL_URL="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/resolve/main/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-IQ4_XS.gguf"
+readonly DRAFT_URL="https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF/resolve/main/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-FastMTP-32K.gguf"
 
 readonly LLAMA_REPO="https://github.com/ggerganov/llama.cpp"
 readonly LLAMA_COMMIT="4df29be4f4c3673f428170fda944a5b19f743bb8"
