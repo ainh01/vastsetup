@@ -732,8 +732,8 @@ server_args=(
     --port "${SERVER_PORT}"
     --ctx-size 262144
     --parallel 1
-    --batch-size 16384
-    --ubatch-size 2048
+    --batch-size 2048
+    --ubatch-size 512
     --n-gpu-layers all
     --split-mode none
     --flash-attn on
@@ -798,6 +798,52 @@ while (( SECONDS < deadline )); do
 
     if [[ "${http_status}" =~ ^[1-5][0-9][0-9]$ ]]; then
         info "FastMTP server is reachable at http://${SERVER_HOST}:${SERVER_PORT} (health HTTP ${http_status}, PID ${server_pid})"
+        
+        # === START OF NGROK SETUP ===
+        info "Setting up ngrok..."
+        
+        # Install ngrok if missing
+        if ! command -v ngrok >/dev/null 2>&1; then
+            apt-get update && apt-get install -y curl unzip >/dev/null 2>&1
+            curl -fL https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip -o /tmp/ngrok.zip >/dev/null 2>&1
+            unzip -o /tmp/ngrok.zip -d /usr/local/bin >/dev/null 2>&1
+            chmod +x /usr/local/bin/ngrok
+        fi
+
+        # Configure with hardcoded token (replace below with your actual token)
+        ngrok config add-authtoken '3Ip0GNgjLFPpOK2dMCdaUfhtbsd_3mGsMGUxFZ4ws1NGf9Tku' >/dev/null 2>&1
+
+        # Start ngrok in background
+        ngrok http 127.0.0.1:3000 &
+        ngrok_pid=$!
+        sleep 3
+
+        # Poll the ngrok status API to get the public URL
+        url=""
+        for i in {1..10}; do
+            url=$(curl -s http://localhost:4040/api/tunnels 2>/dev/null | grep -oP '"public_url":"\K[^"]+' | head -1)
+            [[ -n "$url" ]] && break
+            sleep 1
+        done
+
+        if [[ -z "$url" ]]; then
+            info "Could not fetch ngrok URL from API. Check terminal output manually."
+        else
+            api_url="${url}/chat/completions"
+            echo ""
+            echo "============================================="
+            echo "BYOK API Endpoint Ready:"
+            echo "============================================="
+            echo "${api_url}"
+            echo "============================================="
+            echo "Use API-Key: ${API_KEY}"
+            echo "============================================="
+            echo ""
+        fi
+
+        # Bring ngrok back to foreground to keep the tunnel alive
+        wait $ngrok_pid
+
         info "Log: ${LOG}"
         info "PID file: ${PID_FILE}"
         exit 0
