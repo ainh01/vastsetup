@@ -662,7 +662,7 @@ while (( SECONDS < deadline )); do
             chmod +x /usr/local/bin/ngrok
         fi
 
-        ngrok config add-authtoken '<keyhereherehere>' >/dev/null 2>&1
+        ngrok config add-authtoken '3Ip0GNgjLFPpOK2dMCdaUfhtbsd_3mGsMGUxFZ4ws1NGf9Tku' >/dev/null 2>&1
         ngrok http 127.0.0.1:3000 &
         ngrok_pid=$!
         sleep 3
